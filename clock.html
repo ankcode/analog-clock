@@ -1,0 +1,71 @@
+<style>
+    #clock{
+        position: relative;
+        background: url(clipart-clock-face-3.png) no-repeat;
+        width: 611px;
+        height: 611px;
+    }
+    #clock > #hh, #mh, #sh{
+        position: absolute;
+        transform-origin: bottom;
+        background: #0099cc;
+        border-radius: 7px;
+        opacity: 1;
+    }
+    #clock > #l{
+        position: absolute;
+        border-radius: 7px;
+        opacity: 1;
+    }
+    #clock > #hh{
+        width: 12px;
+        height: 90px;
+        top: 215px;
+        left:294px;
+    }
+    #clock > #mh{
+        width: 6px;
+        height: 120px;
+        top: 185px;
+        left: 297px;
+    }
+    #clock > #sh{
+        width: 2px;
+        height: 170px;
+        top: 135px;
+        left: 299px;
+        opacity:.3;
+    }
+    #clock > #l{
+        width: 10px;
+        height: 5px;
+        top: 126px;
+        left:274px;
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<script>
+    var d, h, m, s, hdeg;
+    function adjustClock() {
+        d = new Date();
+        h = d.getHours();
+        m = d.getMinutes();
+        s = d.getSeconds();
+        hdeg = h*30 + m/2;
+        hh.style.transform = "rotate("+hdeg+"deg)";
+        mh.style.transform = "rotate("+m*6+"deg)";  
+        sh.style.transform = "rotate("+s*6+"deg)";      
+    }
+    window.addEventListener("load", function(){
+        setInterval(adjustClock, 1000 );
+    });
+</script>
+
+<div id="clock">
+    <div id="l">ankCode</div>
+    <div id="hh"></div>
+    <div id="mh"></div>
+    <div id="sh"></div>
+</div>
